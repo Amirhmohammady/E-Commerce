@@ -1,5 +1,6 @@
 package com.digitalstudio.platform.user;
 
+import com.digitalstudio.platform.user.service.UserServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.AssertionsKt;
 import org.junit.jupiter.api.Test;
@@ -14,9 +15,17 @@ public class SpringContextTest {
     @Autowired
     ApplicationContext applicationContext;
 
+    @Autowired
+    UserServiceImpl userService;
+
     @Test
     void shouldLoadApplicationContext(){
         Assertions.assertNotNull(applicationContext);
+    }
+
+    @Test
+    void shouldInjectUserService(){
+        Assertions.assertNotNull(userService);
     }
 
 }
